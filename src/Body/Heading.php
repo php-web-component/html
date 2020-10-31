@@ -1,24 +1,24 @@
 <?php namespace PWC\Html\Body;
 
+use PWC\BuilderTrait;
 use PWC\ComponentTrait;
 use PWC\Html;
 
 class Heading extends Html {
-    protected $tag = 'h';
-
-    protected $level = 1;
-
-    public function __construct(...$children)
-    {
-        parent::__construct(...$children);
-    }
+    protected $_tag = 'h';
+    protected $_level = 1;
 
     public function render()
     {
-        $this->tag .= $this->level;
-
+        $this->_tag .= $this->_level;
         return parent::render();
     }
 
-    use ComponentTrait;
+    public function level(int $level = 1)
+    {
+        $this->_level = $level;
+        return $this;
+    }
+
+    use BuilderTrait, ComponentTrait;
 }

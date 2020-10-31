@@ -1,10 +1,11 @@
 <?php namespace PWC\Html\Body;
 
+use PWC\BuilderTrait;
 use PWC\ComponentTrait;
 use PWC\Html;
 
 class Paragraph extends Html {
-    protected $tag = 'p';
+    protected $_tag = 'p';
 
-    use ComponentTrait;
+    use BuilderTrait, ComponentTrait;
 }

@@ -1,10 +1,11 @@
 <?php namespace PWC\Html;
 
+use PWC\BuilderTrait;
 use PWC\ComponentTrait;
 use PWC\Html;
 
 class Body extends Html {
-    protected $tag = 'body';
+    protected $_tag = 'body';
 
-    use ComponentTrait;
+    use BuilderTrait, ComponentTrait;
 }

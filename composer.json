@@ -13,7 +13,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "PWC\\": "./",
+            "PWC\\": "core/",
             "PWC\\Html\\": "src/"
         }
     },

@@ -1,10 +1,10 @@
-<?php namespace PWC\Html\Head\Style;
+<?php namespace PWC\Html\Script;
 
 use PWC\BuilderTrait;
 use PWC\ComponentTrait;
-use PWC\Html\Head\Style;
+use PWC\Html\Script;
 
-class InternalStyle extends Style {
+class InternalScript extends Script {
     protected $_mode = 'internal';
 
     use BuilderTrait, ComponentTrait;
