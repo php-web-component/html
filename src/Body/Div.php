@@ -3,8 +3,9 @@
 use PWC\BuilderTrait;
 use PWC\Html;
 
-class Paragraph extends Html {
-    protected $_tag = 'p';
+class Div extends Html
+{
+    protected $_tag = 'div';
 
     use BuilderTrait;
 }

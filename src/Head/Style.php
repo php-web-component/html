@@ -1,7 +1,6 @@
 <?php namespace PWC\Html\Head;
 
 use PWC\BuilderTrait;
-use PWC\ComponentTrait;
 use PWC\Html;
 
 class Style extends Html {
@@ -42,5 +41,5 @@ class Style extends Html {
         }
     }
 
-    use BuilderTrait, ComponentTrait;
+    use BuilderTrait;
 }

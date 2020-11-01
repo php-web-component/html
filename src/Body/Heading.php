@@ -1,7 +1,6 @@
 <?php namespace PWC\Html\Body;
 
 use PWC\BuilderTrait;
-use PWC\ComponentTrait;
 use PWC\Html;
 
 class Heading extends Html {
@@ -20,5 +19,5 @@ class Heading extends Html {
         return $this;
     }
 
-    use BuilderTrait, ComponentTrait;
+    use BuilderTrait;
 }

@@ -1,16 +1,17 @@
 <?php namespace PWC\Html;
 
 use PWC\BuilderTrait;
-use PWC\ComponentTrait;
 use PWC\Html;
 
 class Script extends Html {
     protected $_tag = null;
+    protected $_selfClose = null;
+
     protected $_mode = null;
 
-    public function __construct(array $children = [])
+    public function __construct(array $scripts = [])
     {
-        $this->_children = $children;
+        $this->_children = $scripts;
     }
 
     public function render()
@@ -36,5 +37,5 @@ class Script extends Html {
         }
     }
 
-    use BuilderTrait, ComponentTrait;
+    use BuilderTrait;
 }
