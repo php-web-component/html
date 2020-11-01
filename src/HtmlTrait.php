@@ -1,6 +1,6 @@
 <?php namespace PWC\Html;
 
-use PWC\Html\Head\Style\InlineStyle;
+use PWC\Html\Style\InlineStyle;
 
 trait HtmlTrait {
     protected function _renderAttributes()

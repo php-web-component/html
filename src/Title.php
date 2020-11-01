@@ -1,4 +1,4 @@
-<?php namespace PWC\Html\Head;
+<?php namespace PWC\Html;
 
 use PWC\BuilderTrait;
 use PWC\Html;

@@ -1,7 +1,7 @@
-<?php namespace PWC\Html\Body\Heading;
+<?php namespace PWC\Html\Heading;
 
 use PWC\BuilderTrait;
-use PWC\Html\Body\Heading;
+use PWC\Html\Heading;
 
 class H5 extends Heading {
     protected $_level = 5;
