@@ -27,6 +27,11 @@ trait HtmlTrait {
         return $this->attributes(['id' => $id]);
     }
 
+    public function title(string $title = null)
+    {
+        return $this->attributes(['title' => $title]);
+    }
+
     public function class(...$classes)
     {
         $override = false;
