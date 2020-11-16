@@ -1,11 +1,8 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class Div extends Html
+class Div extends \PWC\Component\Html
 {
     protected $_tag = 'div';
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

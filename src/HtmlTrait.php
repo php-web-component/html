@@ -1,18 +1,16 @@
-<?php namespace PWC\Html;
-
-use PWC\Html\Style\InlineStyle;
+<?php namespace PWC\Component\Html;
 
 trait HtmlTrait {
     protected function _renderAttributes()
     {
         return implode(' ', array_map(function($name, $value) {
             if ($name == 'style') {
-                $value = InlineStyle::build($value);
+                $value = \PWC\Component\Html\Style\InlineStyle::build($value);
             } elseif (is_array($value)) {
                 $value = implode(' ', $value);
             }
 
-            return $name . '="' . $value . '"';
+            return $name . '="' . trim($value) . '"';
         }, array_keys($this->_attributes), $this->_attributes));
     }
 

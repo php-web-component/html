@@ -1,9 +1,6 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class Form extends Html
+class Form extends \PWC\Component\Html
 {
     protected $_tag = 'form';
 
@@ -17,5 +14,5 @@ class Form extends Html
         return $this->attributes(['method' => $method]);
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

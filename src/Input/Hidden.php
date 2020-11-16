@@ -1,9 +1,6 @@
-<?php namespace PWC\Html\Input;
+<?php namespace PWC\Component\Html\Input;
 
-use PWC\BuilderTrait;
-use PWC\Html\Input;
-
-class Hidden extends Input
+class Hidden extends \PWC\Component\Html\Input
 {
     public function __construct(...$params)
     {
@@ -11,5 +8,5 @@ class Hidden extends Input
         $this->type('hidden');
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

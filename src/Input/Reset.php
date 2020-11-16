@@ -1,9 +1,6 @@
-<?php namespace PWC\Html\Input;
+<?php namespace PWC\Component\Html\Input;
 
-use PWC\BuilderTrait;
-use PWC\Html\Input;
-
-class Reset extends Input
+class Reset extends \PWC\Component\Html\Input
 {
     public function __construct(...$params)
     {
@@ -11,5 +8,5 @@ class Reset extends Input
         $this->type('reset');
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

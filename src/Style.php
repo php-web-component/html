@@ -1,9 +1,6 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class Style extends Html {
+class Style extends \PWC\Component\Html {
     protected $_tag = null;
     protected $_selfCLose = null;
     protected $_mode = null;
@@ -13,7 +10,7 @@ class Style extends Html {
         $this->_children = $children;
     }
 
-    public function render()
+    public function render(): string
     {
         if ($this->_mode == 'internal') {
             return "<style>" . implode(' ', array_map(function ($name, $value) {
@@ -41,5 +38,5 @@ class Style extends Html {
         }
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

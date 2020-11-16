@@ -1,12 +1,9 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class LineBreak extends Html
+class LineBreak extends \PWC\Component\Html
 {
     protected $_tag = 'br';
     protected $_selfCole = true;
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

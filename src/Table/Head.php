@@ -1,11 +1,8 @@
-<?php namespace PWC\Html\Table;
+<?php namespace PWC\Component\Html\Table;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class Head extends Html
+class Head extends \PWC\Component\Html
 {
     protected $_tag = 'thead';
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

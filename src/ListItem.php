@@ -1,11 +1,8 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class ListItem extends Html
+class ListItem extends \PWC\Component\Html
 {
     protected $_tag = 'li';
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

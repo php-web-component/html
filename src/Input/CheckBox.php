@@ -1,9 +1,6 @@
-<?php namespace PWC\Html\Input;
+<?php namespace PWC\Component\Html\Input;
 
-use PWC\BuilderTrait;
-use PWC\Html\Input;
-
-class CheckBox extends Input
+class CheckBox extends \PWC\Component\Html\Input
 {
     public function __construct(...$params)
     {
@@ -11,5 +8,5 @@ class CheckBox extends Input
         $this->type('checkbox');
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

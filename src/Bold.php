@@ -1,11 +1,8 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class Bold extends Html
+class Bold extends \PWC\Component\Html
 {
     protected $_tag = 'b';
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

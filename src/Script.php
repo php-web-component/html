@@ -1,9 +1,6 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class Script extends Html {
+class Script extends \PWC\Component\Html {
     protected $_tag = null;
     protected $_selfClose = null;
 
@@ -14,7 +11,7 @@ class Script extends Html {
         $this->_children = $scripts;
     }
 
-    public function render()
+    public function render(): string
     {
         if ($this->_mode == 'internal') {
             return '<script type="text/javascript">' . implode('', array_map(function ($name, $script) {
@@ -37,5 +34,5 @@ class Script extends Html {
         }
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

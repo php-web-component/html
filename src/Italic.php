@@ -1,11 +1,8 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class Italic extends Html
+class Italic extends \PWC\Component\Html
 {
     protected $_tag = 'i';
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

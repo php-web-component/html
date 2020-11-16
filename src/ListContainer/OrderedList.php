@@ -1,11 +1,8 @@
-<?php namespace PWC\Html\ListContainer;
+<?php namespace PWC\Component\Html\ListContainer;
 
-use PWC\BuilderTrait;
-use PWC\Html\ListContainer;
-
-class OrderedList extends ListContainer
+class OrderedList extends \PWC\Component\Html\ListContainer
 {
     protected $_type = 'o';
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

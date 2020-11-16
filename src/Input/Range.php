@@ -1,9 +1,6 @@
-<?php namespace PWC\Html\Input;
+<?php namespace PWC\Component\Html\Input;
 
-use PWC\BuilderTrait;
-use PWC\Html\Input;
-
-class Range extends Input
+class Range extends \PWC\Component\Html\Input
 {
     public function __construct(...$params)
     {
@@ -11,5 +8,5 @@ class Range extends Input
         $this->type('range');
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

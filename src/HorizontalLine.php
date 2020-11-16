@@ -1,12 +1,9 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class HorizontalLine extends Html
+class HorizontalLine extends \PWC\Component\Html
 {
     protected $_tag = 'hr';
     protected $_selfClose = true;
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

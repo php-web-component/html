@@ -1,9 +1,7 @@
-<?php namespace PWC\Html\Heading;
+<?php namespace PWC\Component\Html\Heading;
 
-use PWC\BuilderTrait;
-use PWC\Html\Heading;
-
-class H2 extends Heading {
+class H2 extends \PWC\Component\Html\Heading
+{
     protected $_level = 2;
 
     public function level(int $level = 2)
@@ -11,5 +9,5 @@ class H2 extends Heading {
         return $this;
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

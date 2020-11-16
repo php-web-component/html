@@ -1,9 +1,6 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class Input extends Html
+class Input extends \PWC\Component\Html
 {
     protected $_tag = 'input';
     protected $_selfClose = true;
@@ -28,5 +25,5 @@ class Input extends Html
         return $this->attributes(['value' => $value]);
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

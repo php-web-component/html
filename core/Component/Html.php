@@ -1,16 +1,15 @@
-<?php namespace PWC;
+<?php namespace PWC\Component;
 
-use PWC\Html\HtmlTrait;
-
-class Html extends Component {
+class Html extends \PWC\Component
+{
     protected $_tag = 'html';
     protected $_selfClose = false;
     protected $_attributes = [];
     protected $_docType = '!DOCTYPE';
 
-    public function render()
+    public function render(): string
     {
-        $docType = get_class($this) == Html::class ? "{$this->_docType} " : '';
+        $docType = get_class($this) == \PWC\Component\Html::class ? "{$this->_docType} " : '';
         $attributes = $this->_renderAttributes();
         $attributes = empty(trim($attributes)) ? '' : ' ' . $attributes;
 
@@ -21,5 +20,5 @@ class Html extends Component {
         }
     }
 
-    use BuilderTrait, HtmlTrait;
+    use \PWC\BuilderTrait, \PWC\Component\Html\HtmlTrait;
 }

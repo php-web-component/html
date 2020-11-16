@@ -1,10 +1,7 @@
-<?php namespace PWC\Html\Style;
+<?php namespace PWC\Component\Html\Style;
 
-use PWC\BuilderTrait;
-use PWC\Html\Style;
-
-class InlineStyle extends Style {
+class InlineStyle extends \PWC\Component\Html\Style {
     protected $_mode = 'inline';
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

@@ -1,11 +1,8 @@
-<?php namespace PWC\Html\ListContainer;
+<?php namespace PWC\Component\Html\ListContainer;
 
-use PWC\BuilderTrait;
-use PWC\Html\ListContainer;
-
-class UnOrderedList extends ListContainer
+class UnOrderedList extends \PWC\Component\Html\ListContainer
 {
     protected $_type = 'u';
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

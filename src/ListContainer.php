@@ -1,14 +1,11 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class ListContainer extends Html
+class ListContainer extends \PWC\Component\Html
 {
     protected $_tag = 'l';
     protected $_type = 'unordered';
 
-    public function render()
+    public function render(): string
     {
         switch ($this->_type) {
             case 'o':
@@ -25,5 +22,5 @@ class ListContainer extends Html
         return parent::render();
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

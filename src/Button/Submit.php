@@ -1,9 +1,6 @@
-<?php namespace PWC\Html\Button;
+<?php namespace PWC\Component\Html\Button;
 
-use PWC\BuilderTrait;
-use PWC\Html\Button;
-
-class Submit extends Button
+class Submit extends \PWC\Component\Html\Button
 {
     public function __construct(...$params)
     {
@@ -11,5 +8,5 @@ class Submit extends Button
         $this->type('submit');
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

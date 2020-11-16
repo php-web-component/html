@@ -14,7 +14,7 @@
     "autoload": {
         "psr-4": {
             "PWC\\": "core/",
-            "PWC\\Html\\": "src/"
+            "PWC\\Component\\Html\\": "src/"
         }
     },
     "require": {

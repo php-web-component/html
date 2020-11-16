@@ -1,13 +1,10 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class Heading extends Html {
+class Heading extends \PWC\Component\Html {
     protected $_tag = 'h';
     protected $_level = 1;
 
-    public function render()
+    public function render(): string
     {
         $this->_tag .= $this->_level;
         return parent::render();
@@ -19,5 +16,5 @@ class Heading extends Html {
         return $this;
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

@@ -1,11 +1,8 @@
-<?php namespace PWC\Html;
+<?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class Underline extends Html
+class Underline extends \PWC\Component\Html
 {
     protected $_tag = 'u';
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

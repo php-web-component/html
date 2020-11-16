@@ -1,9 +1,6 @@
-<?php namespace PWC\Html\Input;
+<?php namespace PWC\Component\Html\Input;
 
-use PWC\BuilderTrait;
-use PWC\Html\Input;
-
-class Time extends Input
+class Time extends \PWC\Component\Html\Input
 {
     public function __construct(...$params)
     {
@@ -11,5 +8,5 @@ class Time extends Input
         $this->type('time');
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

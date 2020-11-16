@@ -1,9 +1,6 @@
-<?php namespace PWC\Html\Input;
+<?php namespace PWC\Component\Html\Input;
 
-use PWC\BuilderTrait;
-use PWC\Html\Input;
-
-class Button extends Input
+class Button extends \PWC\Component\Html\Input
 {
     public function __construct(...$params)
     {
@@ -11,5 +8,5 @@ class Button extends Input
         $this->type('button');
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

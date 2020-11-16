@@ -1,11 +1,8 @@
-<?php namespace PWC\Html\Table;
+<?php namespace PWC\Component\Html\Table;
 
-use PWC\BuilderTrait;
-use PWC\Html;
-
-class Row extends Html
+class Row extends \PWC\Component\Html
 {
     protected $_tag = 'tr';
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

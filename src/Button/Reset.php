@@ -1,9 +1,6 @@
-<?php namespace PWC\Html\Button;
+<?php namespace PWC\Component\Html\Button;
 
-use PWC\BuilderTrait;
-use PWC\Html\Button;
-
-class Reset extends Button
+class Reset extends \PWC\Component\Html\Button
 {
     public function __construct(...$params)
     {
@@ -11,5 +8,5 @@ class Reset extends Button
         $this->type('reset');
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

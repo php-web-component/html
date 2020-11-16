@@ -1,9 +1,6 @@
-<?php namespace PWC\Html\Input;
+<?php namespace PWC\Component\Html\Input;
 
-use PWC\BuilderTrait;
-use PWC\Html\Input;
-
-class Month extends Input
+class Month extends \PWC\Component\Html\Input
 {
     public function __construct(...$params)
     {
@@ -11,5 +8,5 @@ class Month extends Input
         $this->type('month');
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

@@ -1,10 +1,8 @@
-<?php namespace PWC\Html\Style;
+<?php namespace PWC\Component\Html\Style;
 
-use PWC\BuilderTrait;
-use PWC\Html\Style;
-
-class InternalStyle extends Style {
+class InternalStyle extends \PWC\Component\Html\Style
+{
     protected $_mode = 'internal';
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }

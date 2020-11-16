@@ -1,9 +1,6 @@
-<?php namespace PWC\Html\Input;
+<?php namespace PWC\Component\Html\Input;
 
-use PWC\BuilderTrait;
-use PWC\Html\Input;
-
-class File extends Input
+class File extends \PWC\Component\Html\Input
 {
     public function __construct(...$params)
     {
@@ -11,5 +8,5 @@ class File extends Input
         $this->type('file');
     }
 
-    use BuilderTrait;
+    use \PWC\BuilderTrait;
 }
