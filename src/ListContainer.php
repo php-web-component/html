@@ -1,7 +1,11 @@
 <?php namespace PWC\Component\Html;
 
-class ListContainer extends \PWC\Component\Html
+use PWC\BuilderTrait;
+use PWC\Component\Html;
+
+class ListContainer extends Html
 {
+    protected $_ID = 'pwc-html-listContainer';
     protected $_tag = 'l';
     protected $_type = 'unordered';
 
@@ -22,5 +26,5 @@ class ListContainer extends \PWC\Component\Html
         return parent::render();
     }
 
-    use \PWC\BuilderTrait;
+    use BuilderTrait;
 }

@@ -1,11 +1,14 @@
 <?php namespace PWC\Component\Html;
 
-trait HtmlTrait {
+use PWC\Component\Html\Style\InlineStyle;
+
+trait HtmlTrait
+{
     protected function _renderAttributes()
     {
         return implode(' ', array_map(function($name, $value) {
             if ($name == 'style') {
-                $value = \PWC\Component\Html\Style\InlineStyle::build($value);
+                $value = InlineStyle::build($value);
             } elseif (is_array($value)) {
                 $value = implode(' ', $value);
             }
@@ -28,6 +31,26 @@ trait HtmlTrait {
     public function title(string $title = null)
     {
         return $this->attributes(['title' => $title]);
+    }
+
+    public function role(string $role = null)
+    {
+        return $this->attributes(['role' => $role]);
+    }
+
+    public function alt(string $alt = null)
+    {
+        return $this->attributes(['alt' => $alt]);
+    }
+
+    public function data(string $name = null, $value = null)
+    {
+        return $this->attributes(["data-{$name}" => $value]);
+    }
+
+    public function aria(string $name = null, $value = null)
+    {
+        return $this->attributes(["aria-{$name}" => $value]);
     }
 
     public function class(...$classes)

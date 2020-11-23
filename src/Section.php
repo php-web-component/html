@@ -3,10 +3,10 @@
 use PWC\BuilderTrait;
 use PWC\Component\Html;
 
-class Underline extends Html
+class Section extends Html
 {
-    protected $_ID = 'pwc-html-underline';
-    protected $_tag = 'u';
+    protected $_ID = 'pwc-html-section';
+    protected $_tag = 'section';
 
     use BuilderTrait;
 }

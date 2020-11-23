@@ -1,7 +1,11 @@
 <?php namespace PWC\Component\Html;
 
-class Anchor extends \PWC\Component\Html
+use PWC\BuilderTrait;
+use PWC\Component\Html;
+
+class Anchor extends Html
 {
+    protected $_ID = 'pwc-html-anchor';
     protected $_tag = 'a';
     protected $_attributes = [
         'href' => ''
@@ -12,5 +16,5 @@ class Anchor extends \PWC\Component\Html
         return $this->attributes(['href' => $url]);
     }
 
-    use \PWC\BuilderTrait;
+    use BuilderTrait;
 }

@@ -1,8 +1,12 @@
 <?php namespace PWC\Component\Html\Table;
 
-class Row extends \PWC\Component\Html
+use PWC\BuilderTrait;
+use PWC\Component\Html;
+
+class Row extends Html
 {
+    protected $_ID = 'pwc-html-table-row';
     protected $_tag = 'tr';
 
-    use \PWC\BuilderTrait;
+    use BuilderTrait;
 }

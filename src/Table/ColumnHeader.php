@@ -1,8 +1,12 @@
 <?php namespace PWC\Component\Html\Table;
 
-class ColumnHeader extends \PWC\Component\Html
+use PWC\BuilderTrait;
+use PWC\Component\Html;
+
+class ColumnHeader extends Html
 {
+    protected $_ID = 'pwc-html-table-columnHeader';
     protected $_tag = 'th';
 
-    use \PWC\BuilderTrait;
+    use BuilderTrait;
 }

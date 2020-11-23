@@ -1,6 +1,13 @@
 <?php namespace PWC\Component\Html;
 
-class Script extends \PWC\Component\Html {
+use PWC\BuilderTrait;
+use PWC\Component\Html;
+use PWC\Component\Html\Body\Config as BodyConfig;
+use PWC\Component\Html\Head\Config as HeadConfig;
+
+class Script extends Html
+{
+    protected $_ID = 'pwc-html-script';
     protected $_tag = null;
     protected $_selfClose = null;
 
@@ -34,5 +41,18 @@ class Script extends \PWC\Component\Html {
         }
     }
 
-    use \PWC\BuilderTrait;
+    public static function register($source, $position = 'body')
+    {
+        if ($position == 'body') {
+            BodyConfig::add('script', self::build([
+                $source
+            ]), true);
+        } else {
+            HeadConfig::add('script', self::build([
+                $source
+            ]), true);
+        }
+    }
+
+    use BuilderTrait;
 }

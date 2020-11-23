@@ -1,6 +1,12 @@
 <?php namespace PWC\Component\Html;
 
-class Style extends \PWC\Component\Html {
+use PWC\BuilderTrait;
+use PWC\Component\Html;
+use PWC\Component\Html\Head\Config;
+
+class Style extends Html
+{
+    protected $_ID = 'pwc-html-style';
     protected $_tag = null;
     protected $_selfCLose = null;
     protected $_mode = null;
@@ -8,6 +14,11 @@ class Style extends \PWC\Component\Html {
     public function __construct(array $children = [])
     {
         $this->_children = $children;
+    }
+
+    public function getMode()
+    {
+        return $this->_mode;
     }
 
     public function render(): string
@@ -38,5 +49,12 @@ class Style extends \PWC\Component\Html {
         }
     }
 
-    use \PWC\BuilderTrait;
+    public static function register($source)
+    {
+        Config::add('style', self::build([
+            $source
+        ]), true);
+    }
+
+    use BuilderTrait;
 }

@@ -1,7 +1,11 @@
 <?php namespace PWC\Component\Html;
 
-class Label extends \PWC\Component\Html
+use PWC\BuilderTrait;
+use PWC\Component\Html;
+
+class Label extends Html
 {
+    protected $_ID = 'pwc-html-label';
     protected $_tag = 'label';
 
     public function for($for = null)
@@ -9,5 +13,5 @@ class Label extends \PWC\Component\Html
         return $this->attributes(['for' => $for]);
     }
 
-    use \PWC\BuilderTrait;
+    use BuilderTrait;
 }

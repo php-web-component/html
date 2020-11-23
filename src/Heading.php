@@ -1,6 +1,11 @@
 <?php namespace PWC\Component\Html;
 
-class Heading extends \PWC\Component\Html {
+use PWC\BuilderTrait;
+use PWC\Component\Html;
+
+class Heading extends Html
+{
+    protected $_ID = 'pwc-html-heading';
     protected $_tag = 'h';
     protected $_level = 1;
 
@@ -16,5 +21,5 @@ class Heading extends \PWC\Component\Html {
         return $this;
     }
 
-    use \PWC\BuilderTrait;
+    use BuilderTrait;
 }

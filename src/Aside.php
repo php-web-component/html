@@ -3,10 +3,10 @@
 use PWC\BuilderTrait;
 use PWC\Component\Html;
 
-class Underline extends Html
+class Aside extends Html
 {
-    protected $_ID = 'pwc-html-underline';
-    protected $_tag = 'u';
+    protected $_ID = 'pwc-html-aside';
+    protected $_tag = 'aside';
 
     use BuilderTrait;
 }

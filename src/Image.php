@@ -1,7 +1,11 @@
 <?php namespace PWC\Component\Html;
 
-class Image extends \PWC\Component\Html
+use PWC\BuilderTrait;
+use PWC\Component\Html;
+
+class Image extends Html
 {
+    protected $_ID = 'pwc-html-image';
     protected $_tag = 'img';
     protected $_selfClose = true;
 
@@ -10,5 +14,5 @@ class Image extends \PWC\Component\Html
         return $this->attributes(['src' => $src]);
     }
 
-    use \PWC\BuilderTrait;
+    use BuilderTrait;
 }

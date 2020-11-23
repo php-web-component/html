@@ -1,7 +1,11 @@
 <?php namespace PWC\Component\Html;
 
-class Button extends \PWC\Component\Html
+use PWC\BuilderTrait;
+use PWC\Component\Html;
+
+class Button extends Html
 {
+    protected $_ID = 'pwc-html-button';
     protected $_tag = 'button';
     protected $_attributes = [
         'type' => 'button'
@@ -23,5 +27,5 @@ class Button extends \PWC\Component\Html
         return $this->attributes(['value' => $value]);
     }
 
-    use \PWC\BuilderTrait;
+    use BuilderTrait;
 }
