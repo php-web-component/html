@@ -2,6 +2,7 @@
 
 use PWC\BuilderTrait;
 use PWC\Component;
+use PWC\Component\Html\DocType;
 use PWC\Component\Html\HtmlTrait;
 
 class Html extends Component
@@ -12,11 +13,11 @@ class Html extends Component
     protected $_selfClose = false;
     protected $_attributes = [];
 
-    protected $docType = '!DOCTYPE html';
+    protected ?DocType $docType = null;
 
     public function render(): string
     {
-        $docType = get_class($this) == Html::class ? "<{$this->docType}>" : '';
+        $docType = get_class($this) == Html::class ? (string) ($this->docType ?? DocType::build('html')) : '';
         $attributes = $this->_renderAttributes();
         $attributes = empty(trim($attributes)) ? '' : ' ' . $attributes;
 
@@ -25,6 +26,13 @@ class Html extends Component
         } else {
             return "{$docType}<{$this->_tag}{$attributes}>" . parent::render() . "</{$this->_tag}>";
         }
+    }
+
+    protected function _decorate($component)
+    {
+        parent::_decorate($component);
+
+        $this->_attributes = array_merge($this->_attributes, $component->_attributes);
     }
 
     use BuilderTrait, HtmlTrait;

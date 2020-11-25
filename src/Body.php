@@ -13,7 +13,7 @@ class Body extends Html
     {
         $this->_children = array_merge(
             $this->_children,
-            Config::get('script')
+            Config::get('script'),
         );
 
         return parent::render();

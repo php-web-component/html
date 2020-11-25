@@ -13,6 +13,8 @@ class Style extends Html
 
     public function __construct(array $children = [])
     {
+        parent::__construct();
+
         $this->_children = $children;
     }
 

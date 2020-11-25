@@ -15,6 +15,8 @@ class Script extends Html
 
     public function __construct(array $scripts = [])
     {
+        parent::__construct();
+
         $this->_children = $scripts;
     }
 
