@@ -1,0 +1,27 @@
+{
+    "name": "php-web-component/html",
+    "description": "PHP Web Component HTML",
+    "version": "0.1.0",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bagus A Priambada",
+            "email": "iam.adty@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "PWC\\": "core/",
+            "PWC\\Component\\Html\\": "src/"
+        }
+    },
+    "require": {
+        "php-web-component/core": "dev-develop"
+    },
+    "require-dev": {
+        "kint-php/kint": "^3.3"
+    }
+}
