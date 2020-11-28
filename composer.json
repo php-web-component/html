@@ -20,17 +20,7 @@
     "require": {
         "php-web-component/core": "dev-develop"
     },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "http://localhost/satis"
-        },
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ],
-    "config": {
-        "secure-http": false
+    "require-dev": {
+        "kint-php/kint": "^3.3"
     }
 }
