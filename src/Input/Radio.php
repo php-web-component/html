@@ -1,6 +1,6 @@
 <?php namespace PWC\Component\Html\Input;
 
-use PWC\BuilderTrait;
+use PWC\Component\BuilderTrait;
 use PWC\Component\Html\Input;
 
 class Radio extends Input

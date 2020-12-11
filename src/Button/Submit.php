@@ -1,6 +1,6 @@
 <?php namespace PWC\Component\Html\Button;
 
-use PWC\BuilderTrait;
+use PWC\Component\BuilderTrait;
 use PWC\Component\Html\Button;
 
 class Submit extends Button

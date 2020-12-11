@@ -1,6 +1,6 @@
 <?php namespace PWC\Component\Html;
 
-use PWC\BuilderTrait;
+use PWC\Component\BuilderTrait;
 use PWC\Component\Html;
 
 class LineBreak extends Html

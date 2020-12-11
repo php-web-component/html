@@ -1,6 +1,6 @@
 <?php namespace PWC\Component\Html\Script;
 
-use PWC\BuilderTrait;
+use PWC\Component\BuilderTrait;
 use PWC\Component\Html\Body\Config as BodyConfig;
 use PWC\Component\Html\Head\Config as HeadConfig;
 use PWC\Component\Html\Script;

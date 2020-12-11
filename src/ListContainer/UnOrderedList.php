@@ -1,6 +1,6 @@
 <?php namespace PWC\Component\Html\ListContainer;
 
-use PWC\BuilderTrait;
+use PWC\Component\BuilderTrait;
 use PWC\Component\Html\ListContainer;
 
 class UnOrderedList extends ListContainer

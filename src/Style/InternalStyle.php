@@ -1,6 +1,6 @@
 <?php namespace PWC\Component\Html\Style;
 
-use PWC\BuilderTrait;
+use PWC\Component\BuilderTrait;
 use PWC\Component\Html\Head\Config;
 use PWC\Component\Html\Style;
 

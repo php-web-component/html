@@ -1,6 +1,6 @@
 <?php namespace PWC\Component\Html\Heading;
 
-use PWC\BuilderTrait;
+use PWC\Component\BuilderTrait;
 use PWC\Component\Html\Heading;
 
 class H4 extends Heading

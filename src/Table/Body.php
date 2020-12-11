@@ -1,6 +1,6 @@
 <?php namespace PWC\Component\Html\Table;
 
-use PWC\BuilderTrait;
+use PWC\Component\BuilderTrait;
 use PWC\Component\Html;
 
 class Body extends Html

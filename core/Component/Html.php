@@ -1,18 +1,15 @@
 <?php namespace PWC\Component;
 
-use PWC\BuilderTrait;
 use PWC\Component;
 use PWC\Component\Html\DocType;
 use PWC\Component\Html\HtmlTrait;
+use PWC\Component\Html\Property\Attribute\Collection;
 
 class Html extends Component
 {
-    protected $_ID = 'pwc-html';
-
-    protected $_tag = 'html';
-    protected $_selfClose = false;
-    protected $_attributes = [];
-
+    protected $tag = 'html';
+    protected $selfClose = false;
+    protected Collection $attributes;
     protected ?DocType $docType = null;
 
     public function render(): string
@@ -21,10 +18,10 @@ class Html extends Component
         $attributes = $this->_renderAttributes();
         $attributes = empty(trim($attributes)) ? '' : ' ' . $attributes;
 
-        if ($this->_selfClose) {
-            return "{$docType}<{$this->_tag}{$attributes} />";
+        if ($this->selfClose) {
+            return "{$docType}<{$this->tag}{$attributes} />";
         } else {
-            return "{$docType}<{$this->_tag}{$attributes}>" . parent::render() . "</{$this->_tag}>";
+            return "{$docType}<{$this->tag}{$attributes}>" . parent::render() . "</{$this->tag}>";
         }
     }
 
@@ -32,7 +29,7 @@ class Html extends Component
     {
         parent::_decorate($component);
 
-        $this->_attributes = array_merge($this->_attributes, $component->_attributes);
+        $this->attributes = array_merge($this->attributes, $component->attributes);
     }
 
     use BuilderTrait, HtmlTrait;
