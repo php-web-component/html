@@ -3,6 +3,7 @@
 use PWC\Component;
 use PWC\Component\Html\Attribute\Collection as AttributeCollection;
 use PWC\Component\Html\DocType;
+use PWC\Component\Html\Event\Collection as EventCollection;
 use PWC\Component\Html\SelfClose;
 use PWC\Component\Html\Tag;
 
@@ -12,6 +13,7 @@ class Html extends Component
 
     public ?DocType $_docType;
     public AttributeCollection $_attributes;
+    public EventCollection $_events;
 
     protected Tag $_tag;
     protected SelfClose $_selfClose;
@@ -33,6 +35,10 @@ class Html extends Component
         $attributes = '';
         if (!is_null($this->_attributes->get())) {
             $attributes = implode(' ', array_map(function ($attr) {
+                if ($attr->isSelfRender()) {
+                    return $attr->get();
+                }
+
                 return "{$attr->name()}=\"{$attr->get()}\"";
             }, $this->_attributes->get()));
 
@@ -42,6 +48,22 @@ class Html extends Component
         }
 
         return $attributes;
+    }
+
+    protected function _renderEvents()
+    {
+        $events = '';
+        if (!is_null($this->_events->get())) {
+            $events = implode(' ', array_map(function ($events) {
+                return "{$events->name()}=\"{$events->get()}\"";
+            }, $this->_events->get()));
+
+            if (!empty($events)) {
+                $events = ' ' . $events;
+            }
+        }
+
+        return $events;
     }
 
     public function render(): string
@@ -63,10 +85,11 @@ class Html extends Component
             }
 
             $attributes = $this->_renderAttributes();
+            $events = $this->_renderEvents();
             if ($this->_selfClose->get()) {
-                return "{$docType}<{$tag}{$attributes} />";
+                return "{$docType}<{$tag}{$attributes}{$events} />";
             } else {
-                return "{$docType}<{$tag}{$attributes}>" . parent::render() . "</{$tag}>";
+                return "{$docType}<{$tag}{$attributes}{$events}>" . parent::render() . "</{$tag}>";
             }
         } else {
             return '';
