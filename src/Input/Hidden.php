@@ -1,17 +1,17 @@
 <?php namespace PWC\Component\Html\Input;
 
 use PWC\Component\BuilderTrait;
+use PWC\Component\Html\Attribute\Type;
 use PWC\Component\Html\Input;
 
 class Hidden extends Input
 {
-    protected $_ID = 'pwc-html-input-hidden';
-
-    public function __construct(...$params)
-    {
-        parent::__construct(...$params);
-        $this->type('hidden');
-    }
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_attributes->push(Type::build('hidden'));
+    }
 }
