@@ -1,7 +1,8 @@
 <?php namespace PWC\Component\Html\Style;
 
 use PWC\Component\BuilderTrait;
-use PWC\Component\Html\Attribute\Type;
+use PWC\Component\Html\Attribute\Href;
+use PWC\Component\Html\Attribute\Rel;
 use PWC\Component\Html\Style;
 
 class InternalStyle extends Style
@@ -13,12 +14,15 @@ class InternalStyle extends Style
         parent::_init();
 
         $this->_tag->set('style');
-        $this->_attributes->push(Type::build('text/css'));
+        $this->_selfClose->set(false);
+
+        $this->_attributes->pull(Href::class);
+        $this->_attributes->pull(Rel::class);
     }
 
     private function __renderStyle()
     {
-        return implode(' ', array_map(function ($name, $value) {
+        return implode("\n", array_map(function ($name, $value) {
             return "{$name} {" . implode('', array_map(function ($valName, $valValue) {
                 return "{$valName}:{$valValue};";
             }, array_keys($value), $value)) . "}";
@@ -31,6 +35,6 @@ class InternalStyle extends Style
         $attributes = $this->_renderAttributes();
         $styles = $this->__renderStyle();
 
-        return "<{$tag}{$attributes}>{$styles}</{$tag}>";
+        return "<{$tag}{$attributes}>\n{$styles}\n</{$tag}>";
     }
 }

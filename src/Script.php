@@ -2,59 +2,55 @@
 
 use PWC\Component\BuilderTrait;
 use PWC\Component\Html;
-use PWC\Component\Html\Body\Config as BodyConfig;
-use PWC\Component\Html\Head\Config as HeadConfig;
+use PWC\Component\Html\Attribute\Async;
+use PWC\Component\Html\Attribute\CharSet;
+use PWC\Component\Html\Attribute\Defer;
+use PWC\Component\Html\Attribute\Source;
+use PWC\Component\Html\Attribute\Type;
 
 class Script extends Html
 {
-    protected $_ID = 'pwc-html-script';
-    protected $tag = null;
-    protected $selfClose = null;
+    use BuilderTrait;
 
-    protected $_mode = null;
+    public ?Source $source;
+    public ?Type $type;
+    public ?Async $async;
+    public ?CharSet $charset;
+    public ?Defer $defer;
 
-    public function __construct(array $scripts = [])
+    protected function _init()
     {
-        parent::__construct();
+        parent::_init();
 
-        $this->children = $scripts;
+        $this->_tag->set('script');
+
+        if (is_null($this->type)) {
+            $this->type = Type::build('text/javascript');
+        }
+
+        $this->_attributes->push($this->type);
+
+        if (!is_null($this->source)) {
+            $this->_attributes->push($this->source);
+        }
+
+        if (!is_null($this->async)) {
+            $this->_attributes->push($this->async);
+        }
+
+        if (!is_null($this->charset)) {
+            $this->_attributes->push($this->charset);
+        }
+
+        if (!is_null($this->defer)) {
+            $this->_attributes->push($this->defer);
+        }
+
+        $this->_children = [];
     }
 
     public function render(): string
     {
-        if ($this->_mode == 'internal') {
-            return '<script type="text/javascript">' . implode('', array_map(function ($name, $script) {
-                return $script . (substr($script, -1) == ';' ? '' : ';');
-            }, array_keys($this->children), $this->children)) . '</script>';
-        } elseif ($this->_mode == 'inline') {
-            return '<!-- not ready yet --!>';
-        } else {
-            return implode('', array_map(function ($name, $script) {
-                if (is_array($script)) {
-                    $attributes = implode(' ', array_map(function ($scriptName, $scriptValue) {
-                        return "{$scriptName}=\"{$scriptValue}\"";
-                    }, array_keys($script), $script));
-                    $attributes = empty(trim($attributes)) ? '' : " {$attributes}";
-                    return "<script{$attributes}></script>";
-                } else {
-                    return "<script src=\"{$script}\" type=\"text/javascript\"></script>";
-                }
-            }, array_keys($this->children), $this->children));
-        }
+        return parent::render();
     }
-
-    public static function register($source, $position = 'body')
-    {
-        if ($position == 'body') {
-            BodyConfig::add('script', self::build([
-                $source
-            ]), true);
-        } else {
-            HeadConfig::add('script', self::build([
-                $source
-            ]), true);
-        }
-    }
-
-    use BuilderTrait;
 }

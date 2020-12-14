@@ -20,12 +20,20 @@ class Style extends Html
 
         $this->_tag->set('link');
         $this->_selfClose->set(true);
+
         if (is_null($this->rel)) {
-            $this->_attributes->push(Rel::build('stylesheet'));
+            $this->rel = Rel::build('stylesheet');
+        }
+        
+        if (is_null($this->type)) {
+            $this->type = Type::build('text/css');
         }
 
-        if (is_null($this->type)) {
-            $this->_attributes->push(Type::build('text/css'));
+        $this->_attributes->push($this->type);
+        $this->_attributes->push($this->rel);
+
+        if (!is_null($this->href)) {
+            $this->_attributes->push($this->href);
         }
     }
 }

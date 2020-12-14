@@ -1,27 +1,33 @@
 <?php namespace PWC\Component\Html\Script;
 
 use PWC\Component\BuilderTrait;
-use PWC\Component\Html\Body\Config as BodyConfig;
-use PWC\Component\Html\Head\Config as HeadConfig;
 use PWC\Component\Html\Script;
 
 class InternalScript extends Script
 {
-    protected $_ID = 'pwc-html-script-internal';
-    protected $_mode = 'internal';
+    use BuilderTrait;
 
-    public static function register($source, $position = 'body')
+    private $__tempChildren = [];
+
+    protected function _init()
     {
-        if ($position == 'body') {
-            BodyConfig::add('script', self::build([
-                $source
-            ]), true);
-        } else {
-            HeadConfig::add('script', self::build([
-                $source
-            ]), true);
+        if (!is_null($this->source)) {
+            $this->source = null;
         }
+
+        $this->__tempChildren = $this->_children;
+
+        parent::_init();
     }
 
-    use BuilderTrait;
+    public function render(): string
+    {
+        $this->_children = [
+            "\n" . implode("\n", array_map(function ($script) {
+                return $script . (substr($script, -1) == ';' ? '' : ';');
+            }, $this->__tempChildren)) . "\n"
+        ];
+
+        return parent::render();
+    }
 }

@@ -5,9 +5,6 @@ use PWC\Component\Html;
 
 class ListItem extends Html
 {
-    protected $_ID = 'pwc-html-listItem';
-    protected $tag = 'li';
-
     use BuilderTrait;
 
     protected function _init()
