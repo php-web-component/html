@@ -5,18 +5,12 @@ use PWC\Component\Html;
 
 class Form extends Html
 {
-    protected $_ID = 'pwc-html-form';
-    protected $_tag = 'form';
-
-    public function action($action = '')
-    {
-        return $this->attributes(['action' => $action]);
-    }
-
-    public function method($method = 'get')
-    {
-        return $this->attributes(['method' => $method]);
-    }
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('form');
+    }
 }

@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Navigation extends Html
 {
-    protected $_ID = 'pwc-html-nagivation';
-    protected $_tag = 'nav';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('nav');
+    }
 }

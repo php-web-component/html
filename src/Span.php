@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Span extends Html
 {
-    protected $_ID = 'pwc-html-span';
-    protected $_tag = 'span';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('span');
+    }
 }

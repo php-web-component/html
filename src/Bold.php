@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Bold extends Html
 {
-    protected $_ID = 'pwc-html-bold';
-    protected $_tag = 'b';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('b');
+    }
 }

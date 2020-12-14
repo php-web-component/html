@@ -1,7 +1,6 @@
 {
     "name": "php-web-component/html",
     "description": "PHP Web Component HTML",
-    "version": "0.1.0",
     "type": "library",
     "license": "MIT",
     "authors": [

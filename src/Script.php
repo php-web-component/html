@@ -8,8 +8,8 @@ use PWC\Component\Html\Head\Config as HeadConfig;
 class Script extends Html
 {
     protected $_ID = 'pwc-html-script';
-    protected $_tag = null;
-    protected $_selfClose = null;
+    protected $tag = null;
+    protected $selfClose = null;
 
     protected $_mode = null;
 
@@ -17,7 +17,7 @@ class Script extends Html
     {
         parent::__construct();
 
-        $this->_children = $scripts;
+        $this->children = $scripts;
     }
 
     public function render(): string
@@ -25,7 +25,7 @@ class Script extends Html
         if ($this->_mode == 'internal') {
             return '<script type="text/javascript">' . implode('', array_map(function ($name, $script) {
                 return $script . (substr($script, -1) == ';' ? '' : ';');
-            }, array_keys($this->_children), $this->_children)) . '</script>';
+            }, array_keys($this->children), $this->children)) . '</script>';
         } elseif ($this->_mode == 'inline') {
             return '<!-- not ready yet --!>';
         } else {
@@ -39,7 +39,7 @@ class Script extends Html
                 } else {
                     return "<script src=\"{$script}\" type=\"text/javascript\"></script>";
                 }
-            }, array_keys($this->_children), $this->_children));
+            }, array_keys($this->children), $this->children));
         }
     }
 

@@ -4,7 +4,7 @@ use PWC\Component\Html\Style\InlineStyle;
 
 trait HtmlTrait
 {
-    protected function _renderAttributes()
+    protected function renderAttributes()
     {
         return implode(' ', array_map(function($name, $value) {
             if ($name == 'style') {
@@ -14,12 +14,12 @@ trait HtmlTrait
             }
 
             return $name . '="' . trim($value) . '"';
-        }, array_keys($this->_attributes), $this->_attributes));
+        }, array_keys($this->attributes->get()), $this->attributes->get()));
     }
 
     public function attributes(array $attributes = [], bool $override = false)
     {
-        $this->_attributes = $override ? $attributes : array_merge_recursive($this->_attributes, $attributes);
+        $this->attributes = $override ? $attributes : array_merge_recursive($this->attributes, $attributes);
         return $this;
     }
 
@@ -77,12 +77,12 @@ trait HtmlTrait
         }
 
         if ($override) {
-            unset($this->_attributes['class']);
+            unset($this->attributes['class']);
             unset($classes[count($classes) - 1]);
         }
 
         return $this->attributes(['class' => array_merge(
-            $this->_attributes['class'] ?? [],
+            $this->attributes['class'] ?? [],
             $classes
         )]);
     }
@@ -90,11 +90,11 @@ trait HtmlTrait
     public function style(array $style = [], bool $override = false)
     {
         if ($override) {
-            unset($this->_attributes['style']);
+            unset($this->attributes['style']);
         }
 
         return $this->attributes(['style' => array_merge_recursive(
-            $this->_attributes['style'] ?? [],
+            $this->attributes['style'] ?? [],
             $style
         )]);
     }

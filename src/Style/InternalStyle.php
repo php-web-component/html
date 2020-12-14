@@ -1,20 +1,36 @@
 <?php namespace PWC\Component\Html\Style;
 
 use PWC\Component\BuilderTrait;
-use PWC\Component\Html\Head\Config;
+use PWC\Component\Html\Attribute\Type;
 use PWC\Component\Html\Style;
 
 class InternalStyle extends Style
 {
-    protected $_ID = 'pwc-html-style-inline';
-    protected $_mode = 'internal';
+    use BuilderTrait;
 
-    public static function register($source)
+    protected function _init()
     {
-        Config::add('style', self::build([
-            $source
-        ]), true);
+        parent::_init();
+
+        $this->_tag->set('style');
+        $this->_attributes->push(Type::build('text/css'));
     }
 
-    use BuilderTrait;
+    private function __renderStyle()
+    {
+        return implode(' ', array_map(function ($name, $value) {
+            return "{$name} {" . implode('', array_map(function ($valName, $valValue) {
+                return "{$valName}:{$valValue};";
+            }, array_keys($value), $value)) . "}";
+        }, array_keys($this->_children), $this->_children));
+    }
+
+    public function render(): string
+    {
+        $tag = $this->_tag->get();
+        $attributes = $this->_renderAttributes();
+        $styles = $this->__renderStyle();
+
+        return "<{$tag}{$attributes}>{$styles}</{$tag}>";
+    }
 }

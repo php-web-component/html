@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Italic extends Html
 {
-    protected $_ID = 'pwc-html-italic';
-    protected $_tag = 'i';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('i');
+    }
 }

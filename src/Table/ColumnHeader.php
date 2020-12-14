@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class ColumnHeader extends Html
 {
-    protected $_ID = 'pwc-html-table-columnHeader';
-    protected $_tag = 'th';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('th');
+    }
 }

@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Small extends Html
 {
-    protected $_ID = 'pwc-html-small';
-    protected $_tag = 'small';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('small');
+    }
 }

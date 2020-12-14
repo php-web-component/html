@@ -5,13 +5,12 @@ use PWC\Component\Html\Heading;
 
 class H1 extends Heading
 {
-    protected $_ID = 'pwc-html-heading-1';
-    protected $_level = 1;
-
-    public function level(int $level = 1)
-    {
-        return $this;
-    }
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('h1');
+    }
 }

@@ -2,61 +2,30 @@
 
 use PWC\Component\BuilderTrait;
 use PWC\Component\Html;
-use PWC\Component\Html\Head\Config;
+use PWC\Component\Html\Attribute\Href;
+use PWC\Component\Html\Attribute\Rel;
+use PWC\Component\Html\Attribute\Type;
 
 class Style extends Html
 {
-    protected $_ID = 'pwc-html-style';
-    protected $_tag = null;
-    protected $_selfCLose = null;
-    protected $_mode = null;
+    use BuilderTrait;
 
-    public function __construct(array $children = [])
+    public ?Rel $rel;
+    public ?Type $type;
+    public ?Href $href;
+
+    protected function _init()
     {
-        parent::__construct();
+        parent::_init();
 
-        $this->_children = $children;
-    }
+        $this->_tag->set('link');
+        $this->_selfClose->set(true);
+        if (is_null($this->rel)) {
+            $this->_attributes->push(Rel::build('stylesheet'));
+        }
 
-    public function getMode()
-    {
-        return $this->_mode;
-    }
-
-    public function render(): string
-    {
-        if ($this->_mode == 'internal') {
-            return "<style>" . implode(' ', array_map(function ($name, $value) {
-                return "{$name} {" . implode('', array_map(function ($valName, $valValue) {
-                    return "{$valName}:{$valValue};";
-                }, array_keys($value), $value)) . "}";
-            }, array_keys($this->_children), $this->_children)) . "</style>";
-        } elseif ($this->_mode == 'inline') {
-            return implode('', array_map(function ($name, $value) {
-                return "{$name}:{$value};";
-            }, array_keys($this->_children), $this->_children));
-        } else {
-            return implode('', array_map(function ($name, $style) {
-                if (is_array($style)) {
-                    $attributes = implode(' ', array_map(function ($styleName, $styleValue) {
-                        return "{$styleName}=\"{$styleValue}\"";
-                    }, array_keys($style), $style));
-                    $attributes = empty(trim($attributes)) ? '' : " {$attributes}";
-
-                    return "<link rel=\"stylesheet\"{$attributes} />";
-                } else {
-                    return "<link rel=\"stylesheet\" href=\"{$style}\" />";
-                }
-            }, array_keys($this->_children), $this->_children));
+        if (is_null($this->type)) {
+            $this->_attributes->push(Type::build('text/css'));
         }
     }
-
-    public static function register($source)
-    {
-        Config::add('style', self::build([
-            $source
-        ]), true);
-    }
-
-    use BuilderTrait;
 }

@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Paragraph extends Html
 {
-    protected $_ID = 'pwc-html-paragraph';
-    protected $_tag = 'p';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('p');
+    }
 }

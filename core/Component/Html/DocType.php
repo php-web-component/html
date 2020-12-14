@@ -1,9 +1,9 @@
-<?php namespace PWC\Component\Html\Property\Attribute;
+<?php namespace PWC\Component\Html;
 
 use PWC\Component\Property;
 use PWC\Component\Property\BuilderTrait;
 
-class Id extends Property
+class DocType extends Property
 {
     use BuilderTrait;
 }

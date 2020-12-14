@@ -5,9 +5,13 @@ use PWC\Component\Html;
 
 class LineBreak extends Html
 {
-    protected $_ID = 'pwc-html-lineBreak';
-    protected $_tag = 'br';
-    protected $_selfCole = true;
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('br');
+        $this->_selfClose->set(true);
+    }
 }

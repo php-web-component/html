@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Title extends Html
 {
-    protected $_ID = 'pwc-html-title';
-    protected $_tag = 'title';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('title');
+    }
 }

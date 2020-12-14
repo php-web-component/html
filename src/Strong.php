@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Strong extends Html
 {
-    protected $_ID = 'pwc-html-strong';
-    protected $_tag = 'strong';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('strong');
+    }
 }

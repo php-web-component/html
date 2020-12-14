@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Table extends Html
 {
-    protected $_ID = 'pwc-html-table';
-    protected $_tag = 'table';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('table');
+    }
 }

@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Foot extends Html
 {
-    protected $_ID = 'pwc-html-table-foot';
-    protected $_tag = 'tfoot';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('tfoot');
+    }
 }

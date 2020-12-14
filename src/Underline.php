@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Underline extends Html
 {
-    protected $_ID = 'pwc-html-underline';
-    protected $_tag = 'u';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('u');
+    }
 }

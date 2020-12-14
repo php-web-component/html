@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Section extends Html
 {
-    protected $_ID = 'pwc-html-section';
-    protected $_tag = 'section';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('section');
+    }
 }

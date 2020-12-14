@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Footer extends Html
 {
-    protected $_ID = 'pwc-html-footer';
-    protected $_tag = 'footer';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('footer');
+    }
 }

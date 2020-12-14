@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Aside extends Html
 {
-    protected $_ID = 'pwc-html-aside';
-    protected $_tag = 'aside';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('aside');
+    }
 }

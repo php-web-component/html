@@ -5,8 +5,12 @@ use PWC\Component\Html;
 
 class Header extends Html
 {
-    protected $_ID = 'pwc-html-header';
-    protected $_tag = 'header';
-
     use BuilderTrait;
+
+    protected function _init()
+    {
+        parent::_init();
+
+        $this->_tag->set('header');
+    }
 }
