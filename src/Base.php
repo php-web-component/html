@@ -12,5 +12,6 @@ class Base extends Html
         parent::_init();
 
         $this->_tag->set('base');
+        $this->_selfClose->set(true);
     }
 }

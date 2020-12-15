@@ -12,5 +12,6 @@ class Parameter extends Html
         parent::_init();
 
         $this->_tag->set('param');
+        $this->_selfClose->set(true);
     }
 }

@@ -12,5 +12,6 @@ class Column extends Html
         parent::_init();
 
         $this->_tag->set('col');
+        $this->_selfClose->set(true);
     }
 }

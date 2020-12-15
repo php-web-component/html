@@ -12,5 +12,6 @@ class Embed extends Html
         parent::_init();
 
         $this->_tag->set('embed');
+        $this->_selfClose->set(true);
     }
 }

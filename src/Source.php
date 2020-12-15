@@ -12,5 +12,6 @@ class Source extends Html
         parent::_init();
 
         $this->_tag->set('source');
+        $this->_selfClose->set(true);
     }
 }

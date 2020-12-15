@@ -12,5 +12,6 @@ class Track extends Html
         parent::_init();
 
         $this->_tag->set('track');
+        $this->_selfClose->set(true);
     }
 }
